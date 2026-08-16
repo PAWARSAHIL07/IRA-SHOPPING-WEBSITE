@@ -14,6 +14,8 @@
             --text-light: #ffffff;
             --text-dim: #a0a0b0;
             --success: #25d366;
+            --glass-bg: rgba(20, 20, 30, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -28,14 +30,11 @@
             background-color: var(--bg-color);
             color: var(--text-light);
             overflow-x: hidden;
-            padding-bottom: 80px; /* Space for bottom nav */
+            padding-bottom: 80px;
         }
 
-        h1, h2, h3 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
 
-        /* Tactile Button Effects */
         button, .cta {
             cursor: pointer;
             border: none;
@@ -44,351 +43,212 @@
             font-weight: 700;
         }
 
-        button:active, .cta:active {
-            transform: scale(0.96);
-        }
+        button:active, .cta:active { transform: scale(0.96); }
 
         /* Header */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+            position: fixed; top: 0; left: 0; width: 100%;
             padding: 15px 20px;
             background: rgba(15, 15, 21, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .logo {
-            font-size: 1.2rem;
-            font-weight: 800;
+            font-size: 1.2rem; font-weight: 800;
             background: linear-gradient(45deg, var(--accent), var(--accent-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         .cart-icon {
-            position: relative;
-            background: var(--card-bg);
-            padding: 10px;
-            border-radius: 12px;
+            position: relative; background: var(--card-bg);
+            padding: 10px; border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--accent-secondary);
-            color: white;
-            font-size: 0.7rem;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-weight: bold;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
-            background: radial-gradient(circle at 50% 30%, rgba(0, 242, 234, 0.1), transparent 60%);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-            max-width: 400px;
-            margin-bottom: 30px;
-        }
-
-        .cta-main {
-            background: linear-gradient(45deg, var(--accent), #00b8b3);
-            color: #000;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            box-shadow: 0 10px 20px rgba(0, 242, 234, 0.3);
-        }
-
-        /* Products Grid */
-        .products-section {
-            padding: 40px 20px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: var(--accent-secondary);
-            border-radius: 2px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .product-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
             transition: transform 0.2s;
         }
 
-        .product-card:active {
-            transform: scale(0.98);
+        .cart-count {
+            position: absolute; top: -5px; right: -5px;
+            background: var(--accent-secondary); color: white;
+            font-size: 0.7rem; width: 20px; height: 20px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; font-weight: bold;
         }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 20px; position: relative;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 242, 234, 0.1), transparent 60%);
+        }
+
+        .hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 400px; margin-bottom: 30px; }
+
+        .cta-main {
+            background: linear-gradient(45deg, var(--accent), #00b8b3);
+            color: #000; padding: 15px 40px; border-radius: 50px;
+            font-size: 1.1rem; text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 242, 234, 0.3);
+        }
+
+        /* Products */
+        .products-section { padding: 40px 20px; }
+
+        .section-title {
+            font-size: 1.8rem; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .section-title::before {
+            content: ''; width: 4px; height: 24px;
+            background: var(--accent-secondary); border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid; grid-template-columns: 1fr; gap: 20px;
+        }
+
+        .product-card {
+            background: var(--card-bg); border-radius: 20px;
+            overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .product-card:active { transform: scale(0.98); }
 
         .product-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background: #000;
+            width: 100%; height: 220px; object-fit: cover; background: #000;
+            pointer-events: none; /* Prevents image dragging when clicking card */
         }
 
-        .product-info {
-            padding: 15px;
-        }
+        .product-info { padding: 15px; }
 
-        .product-name {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .product-desc {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            margin-bottom: 15px;
-            min-height: 35px;
-        }
-
-        .product-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
+        .product-name { font-size: 1.1rem; margin-bottom: 5px; }
+        .product-desc { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 15px; min-height: 35px; }
+        
+        .product-bottom { display: flex; justify-content: space-between; align-items: center; }
+        .price { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
 
         .add-btn {
-            background: var(--accent-secondary);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            background: var(--accent-secondary); color: white;
+            padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;
+            z-index: 10; /* Ensure clicks on button don't trigger card click */
         }
 
-        /* Bottom Sheet / Cart Drawer */
+        /* Overlays & Drawers */
         .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 200;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 200;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
         }
 
-        .overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
+        .overlay.active { opacity: 1; pointer-events: all; }
 
         .drawer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            max-height: 85vh;
-            background: #15151e;
-            border-radius: 20px 20px 0 0;
-            z-index: 300;
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
+            position: fixed; bottom: 0; left: 0; width: 100%; max-height: 85vh;
+            background: #15151e; border-radius: 20px 20px 0 0; z-index: 300;
+            transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column;
             border-top: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
         }
 
-        .drawer.active {
-            transform: translateY(0);
-        }
-
-        .drawer-handle {
-            width: 40px;
-            height: 5px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 5px;
-            margin: 10px auto;
-        }
-
-        .drawer-content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .drawer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
+        .drawer.active { transform: translateY(0); }
+        .drawer-handle { width: 40px; height: 5px; background: rgba(255,255,255,0.2); border-radius: 5px; margin: 10px auto; }
+        .drawer-content { padding: 20px; overflow-y: auto; }
+        .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        
         .close-btn {
-            background: rgba(255,255,255,0.1);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: rgba(255,255,255,0.1); width: 32px; height: 32px;
+            border-radius: 50%; color: white; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.05);
-            padding: 5px;
-            border-radius: 10px;
-        }
-
-        .qty-btn {
-            background: transparent;
-            color: var(--accent);
-            width: 24px;
-            height: 24px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .qty-controls { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 10px; }
+        .qty-btn { background: transparent; color: var(--accent); width: 24px; height: 24px; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
 
         .checkout-btn {
-            background: var(--success);
-            color: #000;
-            width: 100%;
-            padding: 18px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            margin-top: 20px;
+            background: var(--success); color: #000; width: 100%; padding: 18px;
+            border-radius: 12px; font-size: 1.1rem; margin-top: 20px;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
 
-        /* Form Elements */
-        .form-group {
-            margin-bottom: 15px;
+        /* Product Detail Glass Bubble */
+        .product-modal {
+            position: fixed; bottom: 0; left: 0; width: 100%; max-height: 90vh;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 24px 24px 0 0; z-index: 300;
+            transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column;
+            border-top: 1px solid var(--glass-border);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
+            overflow: hidden;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            margin-bottom: 5px;
+        .product-modal.active { transform: translateY(0); }
+
+        .modal-content { padding: 0 20px 30px; overflow-y: auto; }
+
+        .image-carousel {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; gap: 10px;
+            padding: 15px 20px; border-radius: 15px;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+        .image-carousel::-webkit-scrollbar { display: none; /* Hide scrollbar Chrome/Safari */ }
+
+        .carousel-img {
+            flex: 0 0 85%; height: 300px; object-fit: cover;
+            scroll-snap-align: center; border-radius: 15px;
+            background: #000;
         }
 
+        .modal-title { font-size: 1.8rem; margin-bottom: 5px; margin-top: 10px; }
+        .modal-price { font-size: 1.4rem; color: var(--accent); margin-bottom: 15px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+        .modal-desc { color: var(--text-dim); line-height: 1.5; margin-bottom: 25px; font-size: 0.95rem; white-space: pre-wrap; /* Allows line breaks in text */ }
+
+        .modal-add-btn {
+            background: linear-gradient(45deg, var(--accent-secondary), #cc0044);
+            color: white; width: 100%; padding: 18px; border-radius: 12px;
+            font-size: 1.1rem; box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
+        }
+
+        /* Forms */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 5px; }
         .form-input {
-            width: 100%;
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: border 0.2s;
+            width: 100%; background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1); padding: 15px;
+            border-radius: 10px; color: white; font-family: 'Outfit', sans-serif;
+            font-size: 1rem; outline: none; transition: border 0.2s;
         }
-
-        .form-input:focus {
-            border-color: var(--accent);
-        }
-
-        .empty-cart {
-            text-align: center;
-            color: var(--text-dim);
-            padding: 40px 0;
-        }
+        .form-input:focus { border-color: var(--accent); }
+        .empty-cart { text-align: center; color: var(--text-dim); padding: 40px 0; }
 
         /* Desktop Tweaks */
         @media (min-width: 768px) {
             .hero h1 { font-size: 4.5rem; }
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .drawer {
-                max-width: 450px;
-                left: auto;
-                right: 0;
-                border-radius: 20px 0 0 0;
-                height: 100vh;
-                max-height: 100vh;
-                transform: translateX(100%);
-            }
-            .drawer.active {
-                transform: translateX(0);
-            }
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
+            .drawer { max-width: 450px; left: auto; right: 0; border-radius: 20px 0 0 0; height: 100vh; max-height: 100vh; transform: translateX(100%); }
+            .drawer.active { transform: translateX(0); }
+            .product-modal { max-width: 500px; left: 50%; transform: translate(-50%, 100%); border-radius: 24px; }
+            .product-modal.active { transform: translate(-50%, -5%); top: 5%; bottom: auto; max-height: 90vh; }
+            .carousel-img { flex: 0 0 100%; height: 350px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="logo">IRA 3D CREATIONS</div>
         <div class="cart-icon" onclick="toggleCart()">
@@ -397,23 +257,21 @@
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <h1>Bringing Ideas to <span>Reality</span></h1>
         <p>Premium custom 3D printed products. Quality you can touch, designs you'll love.</p>
         <a href="#products" class="cta-main">Explore Collection</a>
     </section>
 
-    <!-- Products -->
     <section class="products-section" id="products">
         <h2 class="section-title">Our Collection</h2>
-        <div class="products-grid" id="productGrid">
-            <!-- Products will be injected by JS -->
-        </div>
+        <div class="products-grid" id="productGrid"></div>
     </section>
 
-    <!-- Cart Overlay & Drawer -->
+    <!-- Overlays -->
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+    <!-- Cart Drawer -->
     <div class="drawer" id="cartDrawer">
         <div class="drawer-handle"></div>
         <div class="drawer-content">
@@ -458,38 +316,142 @@
         </div>
     </div>
 
+    <!-- Product Detail Translucent Bubble -->
+    <div class="product-modal" id="productModal">
+        <div class="drawer-handle" style="margin-top: 10px;"></div>
+        <div class="modal-content">
+            <div class="image-carousel" id="modalCarousel"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-price" id="modalPrice"></p>
+            <p class="modal-desc" id="modalDesc"></p>
+            <button class="modal-add-btn" id="modalAddBtn">Add to Cart</button>
+        </div>
+    </div>
+
     <script>
-        // Product Data
+        // Product Data - Added your custom product at the top!
         const products = [
-            { id: 1, name: "Articulated Dragon", desc: "Flexible print-in-place model", price: 450, img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b73d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-            { id: 2, name: "Geometric Planter", desc: "Modern design for succulents", price: 300, img: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-            { id: 3, name: "Custom Keychain", desc: "Personalized with your name", price: 150, img: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-            { id: 4, name: "Desk Lamp Vader", desc: "LED ready geometric lamp", price: 800, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-            { id: 5, name: "Miniature Castle", desc: "Highly detailed tabletop decor", price: 650, img: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
-            { id: 6, name: "Cable Organizer", desc: "Neatly manage your desk cables", price: 200, img: "https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
+            { 
+                id: 1, 
+                name: "3D Printed PLA Mini Tulsi Vrindavan (2.5 Inches)", 
+                price: 350, 
+                shortDesc: "Sacred vibes for your home or office desk",
+                detailedDesc: "Bring sacred vibes and traditional elegance to your home with this beautifully crafted Mini Tulsi Vrindavan. Expertly created using 3D printing technology from high-quality, eco-friendly PLA material, this 2.5-inch replica captures intricate traditional details in a compact size.\n\nMaterial: Durable, Eco-friendly PLA (3D Printed)\nHeight: 2.5 inches\nDesign: Lightweight, detailed, and sturdy mini replica\nIdeal For: Home altars (Pooja room), office desks, car dashboards, or thoughtful gifting on festive occasions.",
+                images: [
+                    "https://raw.githubusercontent.com/PAWARSAHIL07/IRA-SHOPPING-WEBSITE/main/images/IMG-20260816-WA0012.jpg",
+                    "https://raw.githubusercontent.com/PAWARSAHIL07/IRA-SHOPPING-WEBSITE/main/images/IMG-20260816-WA0012.jpg",
+                    "https://raw.githubusercontent.com/PAWARSAHIL07/IRA-SHOPPING-WEBSITE/main/images/IMG-20260816-WA0012.jpg"
+                ]
+            },
+            { 
+                id: 2, name: "Articulated Dragon", price: 450, 
+                shortDesc: "Flexible print-in-place model",
+                detailedDesc: "Meet the Crystal Wyrm, a mesmerizing articulated dragon printed in a single piece! No assembly required. Its flexible joints move smoothly, making it the perfect fidget toy or desk companion. Printed in premium PLA bioplastic.",
+                images: [
+                    "https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1531256379416-9f000e90aacc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                id: 3, name: "Geometric Planter", price: 300,
+                shortDesc: "Modern design for succulents",
+                detailedDesc: "Add a touch of modern art to your plants. This geometric planter features a low-poly dodecahedron design. It includes a drainage hole and a matching saucer. Perfect for succulents, cacti, or small herbs.",
+                images: [
+                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1521334884684-d80222895322?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                id: 4, name: "Custom Neon Keychain", price: 150,
+                shortDesc: "Personalized with your name",
+                detailedDesc: "Carry your identity in style. These custom keychains are printed with a dual-tone extruder, featuring a solid base and a translucent neon name. The perfect gift for friends, family, or car keys.",
+                images: [
+                    "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1583224944844-5b268c057b72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                id: 5, name: "Voronoi Desk Lamp", price: 800,
+                shortDesc: "LED ready geometric lamp",
+                detailedDesc: "A stunning organic Voronoi patterned lampshade that casts intricate shadows across your room. Designed to fit standard E27 LED bulbs. The futuristic design makes it a centerpiece for any gaming setup or modern living room.",
+                images: [
+                    "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1530603907829-659ab1b94c6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                id: 6, name: "Miniature Castle Terrain", price: 650,
+                shortDesc: "Highly detailed tabletop decor",
+                detailedDesc: "Elevate your D&D campaigns or tabletop games with this highly detailed miniature castle. Featuring stone textures, ramparts, and towers. Printed in high-resolution gray resin for maximum detail.",
+                images: [
+                    "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1542315192-1f61a1792f33?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1582653291997-079a1c04e208?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                id: 7, name: "Magnetic Cable Organizer", price: 200,
+                shortDesc: "Neatly manage your desk cables",
+                detailedDesc: "Tired of cables falling off your desk? These sleek magnetic cable clips attach to the edge of your table. The magnets hold your cables securely, and releasing them is just a simple pull. Pack of 4.",
+                images: [
+                    "https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            }
         ];
 
         let cart = [];
 
-        // Render Products
+        // Render Products on Main Grid
         const productGrid = document.getElementById('productGrid');
         products.forEach(p => {
             productGrid.innerHTML += `
-                <div class="product-card">
-                    <img src="${p.img}" alt="${p.name}" class="product-img">
+                <div class="product-card" onclick="openProductDetail(${p.id})">
+                    <img src="${p.images[0]}" alt="${p.name}" class="product-img">
                     <div class="product-info">
                         <h3 class="product-name">${p.name}</h3>
-                        <p class="product-desc">${p.desc}</p>
+                        <p class="product-desc">${p.shortDesc}</p>
                         <div class="product-bottom">
                             <span class="price">₹${p.price}</span>
-                            <button class="add-btn" onclick="addToCart(${p.id})">Add +</button>
+                            <button class="add-btn" onclick="event.stopPropagation(); addToCart(${p.id})">Add +</button>
                         </div>
                     </div>
                 </div>
             `;
         });
 
-        // Cart Functions
+        // Product Detail Bubble Logic
+        function openProductDetail(id) {
+            const product = products.find(p => p.id === id);
+            
+            // Populate Carousel
+            const carousel = document.getElementById('modalCarousel');
+            carousel.innerHTML = '';
+            product.images.forEach(imgSrc => {
+                carousel.innerHTML += `<img src="${imgSrc}" class="carousel-img" alt="${product.name}">`;
+            });
+
+            // Populate Text
+            document.getElementById('modalTitle').innerText = product.name;
+            document.getElementById('modalPrice').innerText = `₹${product.price}`;
+            document.getElementById('modalDesc').innerText = product.detailedDesc;
+            
+            // Setup Add to Cart Button inside Modal
+            const modalBtn = document.getElementById('modalAddBtn');
+            modalBtn.setAttribute('onclick', `addToCart(${product.id})`);
+
+            // Show Modal
+            document.getElementById('productModal').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Cart Logic
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             const cartItem = cart.find(item => item.id === id);
@@ -497,11 +459,11 @@
             if(cartItem) {
                 cartItem.qty += 1;
             } else {
-                cart.push({...product, qty: 1});
+                cart.push({id: product.id, name: product.name, price: product.price, qty: 1});
             }
             updateCart();
             
-            // Tactile feedback - shake cart icon
+            // Tactile feedback
             const cartIcon = document.querySelector('.cart-icon');
             cartIcon.style.transform = 'scale(1.2)';
             setTimeout(() => cartIcon.style.transform = 'scale(1)', 200);
@@ -556,8 +518,9 @@
             cartCount.innerText = totalQty;
         }
 
-        // Drawer Controls
+        // Navigation & Drawers
         function toggleCart() {
+            closeAll(); // Close anything else first
             document.getElementById('cartDrawer').classList.add('active');
             document.getElementById('overlay').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -572,6 +535,7 @@
         function closeAll() {
             document.getElementById('cartDrawer').classList.remove('active');
             document.getElementById('checkoutDrawer').classList.remove('active');
+            document.getElementById('productModal').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
@@ -597,13 +561,9 @@
             
             message += `%0A*Total Amount: ₹${total}*`;
             
-            // Replace 9588420626 with your number. Assuming +91 for India.
             const whatsappUrl = `https://wa.me/919588420626?text=${message}`;
-            
-            // Redirect to WhatsApp
             window.location.href = whatsappUrl;
             
-            // Optional: Clear cart after redirect
             setTimeout(() => {
                 cart = [];
                 updateCart();
